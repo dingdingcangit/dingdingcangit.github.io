@@ -18,9 +18,25 @@
   <meta name="author" content="DING">
   <meta name="keywords" content="">
   
-  <title>皮皮DING的blog</title>
+  <title>redis学习笔记 - 皮皮DING的blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -48,7 +64,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -142,22 +158,55 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.jpg') no-repeat center center;
+         style="background: url('/img/default.png%60') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="全世界的无产者 联合起来！">
+            <span class="h2" id="subtitle" title="redis学习笔记">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-22 16:45" pubdate>
+        2021年7月22日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      378 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -166,154 +215,103 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/22/matlab%E5%AD%A6%E4%B9%A0/7%E6%9C%8821%E6%97%A5%E7%AC%94%E8%AE%B0/" target="_self">
-          模糊矩阵的matlab代码实现
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/22/matlab%E5%AD%A6%E4%B9%A0/7%E6%9C%8821%E6%97%A5%E7%AC%94%E8%AE%B0/" target="_self">
-          
-          
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">redis学习笔记</h1>
             
-          
-          模糊矩阵矩阵的合成数据引入12345a = [0.4,0.5,0.6;    0.1,0.2,0.3];b = [0.1,0.2;    0.3,0.4;    0.5,0.6];
-计算12345678910for i = 1:size(a,1)    for j = 1:size(a,1)        t(j,i) = max(min(a(j,:),b(:,i)&#x27;));    end
-        </a>
-      </p>
+            <div class="markdown-body">
+              <h1 id="redis学习笔记"><a href="#redis学习笔记" class="headerlink" title="redis学习笔记"></a>redis学习笔记</h1><h2 id="什么是redis"><a href="#什么是redis" class="headerlink" title="什么是redis"></a>什么是redis</h2><p>Redis是用C语言开发的一个开源的高性能键值对（Key-value）数据库，他通过提供多种键值数据类型来适应不同场景的存储需求。Redis支持五种数据类型：</p>
+<ul>
+<li>字符串类型(String)</li>
+<li>哈希(hash)</li>
+<li>字符串列表(list)</li>
+<li>字符串集合(set)</li>
+<li>有序列表(sorted set)<h2 id="redis的应用场景"><a href="#redis的应用场景" class="headerlink" title="redis的应用场景"></a>redis的应用场景</h2>Redis交换数据快，所以在服务器中常用来存储一些需要频繁调取的数据，这样可以大大节省系统直接读取磁盘来获得数据的I/O开销，更重要的是可以极大提升速度。</li>
+</ul>
+<p>拿大型网站来举个例子，比如a网站首页一天有100万人访问，其中有一个板块为推荐新闻。要是直接从数据库查询，那么一天就要多消耗100万次数据库请求。上面已经说过，Redis支持丰富的数据类型，所以这完全可以用Redis来完成，将这种热点数据存到Redis（内存）中，要用的时候，直接从内存取，极大的提高了速度和节约了服务器的开销。</p>
+<h2 id="redis的安装与运行"><a href="#redis的安装与运行" class="headerlink" title="redis的安装与运行"></a>redis的安装与运行</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li>OS X<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install redis<br></code></pre></td></tr></table></figure></li>
+<li>Linux<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">      <span class="hljs-comment"># Manjaro</span><br>      sudo pacman -S redis<br>      <span class="hljs-comment"># Ubuntu</span><br>      sudo apt-get install redis<br>      <span class="hljs-comment"># centOS</span><br>      sudo yum install redis<br>      <span class="hljs-comment"># yay</span><br>sudo yay -S redis<br></code></pre></td></tr></table></figure></li>
+<li>安装绿色版redis<br>在redis的<a target="_blank" rel="noopener" href='https://redis.io/download'>官网</a>下载，然后执行命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -zxvf redis.tar.gz<br>sudo mv redis /opt<br></code></pre></td></tr></table></figure>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 启动服务</span><br>sudo redis-server<br><span class="hljs-comment"># 访问redis</span><br>redis-cli<br></code></pre></td></tr></table></figure>
+<h2 id="redis的数据结构"><a href="#redis的数据结构" class="headerlink" title="redis的数据结构"></a>redis的数据结构</h2></li>
+</ul>
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-22 16:46" pubdate>
-              2021-07-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/matlab%E5%AD%A6%E4%B9%A0/">matlab学习</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/22/redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
-          redis学习笔记
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/22/redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
-          
-          
-            
-          
-          redis学习笔记什么是redisRedis是用C语言开发的一个开源的高性能键值对（Key-value）数据库，他通过提供多种键值数据类型来适应不同场景的存储需求。Redis支持五种数据类型：
-
-字符串类型(String)
-哈希(hash)
-字符串列表(list)
-字符串集合(set)
-有序列表(sorted set)redis的应用场景Redis交换数据快，所以在服务器中常用来存储一些需要频繁调
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-22 16:45" pubdate>
-              2021-07-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/redis%E5%AD%A6%E4%B9%A0/">redis学习</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/02/23/linux%E5%AD%A6%E4%B9%A0/linux/" target="_self">
-          linux入门
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/02/23/linux%E5%AD%A6%E4%B9%A0/linux/" target="_self">
-          
-          
-            
-          
-          什么是linux使用linux有什么好处linux下vim的使用与配置linux非窗体环境的常用操作
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-02-23 19:20" pubdate>
-              2020-02-23
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/redis%E5%AD%A6%E4%B9%A0/">redis学习</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/07/22/matlab%E5%AD%A6%E4%B9%A0/7%E6%9C%8821%E6%97%A5%E7%AC%94%E8%AE%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">模糊矩阵的matlab代码实现</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/02/23/linux%E5%AD%A6%E4%B9%A0/linux/">
+                        <span class="hidden-mobile">linux入门</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -393,9 +391,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
