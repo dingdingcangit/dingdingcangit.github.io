@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>matlab学习笔记</title>
+    <link href="/2021/07/23/matlab%E5%AD%A6%E4%B9%A0/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <url>/2021/07/23/matlab%E5%AD%A6%E4%B9%A0/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="matlab常用函数"><a href="#matlab常用函数" class="headerlink" title="matlab常用函数"></a>matlab常用函数</h2><table><thead><tr><th>函数名</th><th>功能</th></tr></thead><tbody><tr><td>zeros</td><td>构造一个全0矩阵</td></tr><tr><td>ones</td><td>构造一个全1矩阵</td></tr><tr><td>eye</td><td>创建一个对角线为全1的矩阵</td></tr><tr><td>magic</td><td>创建魔方阵</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>matlab学习</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>模糊矩阵的matlab代码实现</title>
     <link href="/2021/07/22/matlab%E5%AD%A6%E4%B9%A0/7%E6%9C%8821%E6%97%A5%E7%AC%94%E8%AE%B0/"/>
     <url>/2021/07/22/matlab%E5%AD%A6%E4%B9%A0/7%E6%9C%8821%E6%97%A5%E7%AC%94%E8%AE%B0/</url>
